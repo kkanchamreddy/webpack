@@ -1,0 +1,22 @@
+{
+  "name": "webpack-kiran",
+  "version": "1.0.0",
+  "description": "",
+  "main": "entry.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.7.2",
+    "babel-loader": "^6.2.4",
+    "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "style-loader": "^0.13.0"
+  },
+  "dependencies": {
+    "react": "^0.14.7",
+    "webpack": "^1.12.14"
+  }
+}
