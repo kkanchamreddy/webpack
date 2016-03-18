@@ -1,10 +1,14 @@
 // webpack.config.js
+var BUILD_DIR = path.resolve(__dirname, 'dist');
+var APP_DIR = path.resolve(__dirname, 'src/client');
+
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var path = require('path');
 
 module.exports = {
     // The standard entry point and output config
     entry: {
+		index: APP_DIR + "/index.jsx",
         entry0: "./entry-0",
         entry1: "./entry-1"
     },
