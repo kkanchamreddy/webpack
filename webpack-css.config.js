@@ -1,16 +1,15 @@
 // webpack.config.js
+var path = require('path');
 var BUILD_DIR = path.resolve(__dirname, 'dist');
 var APP_DIR = path.resolve(__dirname, 'src/client');
 
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var path = require('path');
+
 
 module.exports = {
     // The standard entry point and output config
     entry: {
-		index: APP_DIR + "/index.jsx",
-        entry0: "./entry-0",
-        entry1: "./entry-1"
+		index: APP_DIR + "/index.jsx"
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -19,6 +18,14 @@ module.exports = {
     },
     module: {
         loaders: [
+            {
+				test: /\.jsx?/,
+				exclude: /node_modules/,
+				loader: 'babel',
+				query: {
+					presets: ['react', 'es2015']
+				}
+            },
             // Extract css files
             {
                 test: /\.css$/,
@@ -29,6 +36,10 @@ module.exports = {
             {
                 test: /\.less$/,
                 loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
+            },
+            {
+                test: /\.scss$/,
+                loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")
             }
             // You could also use other loaders the same way. I. e. the autoprefixer-loader
         ]
