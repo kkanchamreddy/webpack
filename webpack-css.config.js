@@ -1,7 +1,9 @@
 // webpack.config.js
 var path = require('path');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 var BUILD_DIR = path.resolve(__dirname, 'dist');
 var APP_DIR = path.resolve(__dirname, 'src/client');
+var PAGES_DIR = path.resolve(__dirname, 'src/pages');
 
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
@@ -46,6 +48,16 @@ module.exports = {
     },
     // Use the plugin to specify the resulting filename (and add needed behavior to the compiler)
     plugins: [
-        new ExtractTextPlugin("[name].css")
+        new ExtractTextPlugin("[name].css"),
+		new HtmlWebpackPlugin({
+            title: 'Page1',
+            filename: 'src/pages/page1/index.html', // relative path from "output" directory
+            template: PAGES_DIR + '/page1/index.html' // source file
+        }),
+        new HtmlWebpackPlugin({
+            title: 'Page2',
+            filename: 'src/pages/page2/index.html', // relative path from "output" directory
+            template: PAGES_DIR + '/page2/index.html' // source file
+        })
     ]
 }
