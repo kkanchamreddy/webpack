@@ -11,7 +11,8 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
     // The standard entry point and output config
     entry: {
-		index: APP_DIR + "/index.jsx"
+		page1: PAGES_DIR + "/page1/dependencies.js",
+        page2: PAGES_DIR + "/page2/dependencies.js"
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -52,7 +53,8 @@ module.exports = {
 		new HtmlWebpackPlugin({
             title: 'Page1',
             filename: 'src/pages/page1/index.html', // relative path from "output" directory
-            template: PAGES_DIR + '/page1/index.html' // source file
+            template: PAGES_DIR + '/page1/index.html', // source file
+            hash: true
         }),
         new HtmlWebpackPlugin({
             title: 'Page2',
